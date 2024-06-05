@@ -22,8 +22,12 @@ function createGrid(size) {
 function editGrid() {
     let sign = prompt("Enter the number of squares per side for the new grid (Max: 100): ");
 
-    refresh();
-    createGrid(sign);
+    if (sign > 100 || isNaN(sign) || sign < 1) {
+        alert("Invalid input. Please try again.");
+    } else {
+        refresh();
+        createGrid(sign);
+    }
 }
 
 /// This function refreshes the grid
