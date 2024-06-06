@@ -2,20 +2,19 @@
 function createGrid(size) {
     for (let i = 0; i < (size * size); i++) {
         let grid = document.createElement("div");
+        let brightness = 100;
         let gridWidth = `calc(100% / ${size} - 1px)`;
         grid.style.flexBasis = gridWidth;
         grid.style.paddingTop = gridWidth;
         grid.classList.add("grid");
         container.appendChild(grid);
-    }
 
-    const gridItems = document.querySelectorAll(".grid");
-
-    gridItems.forEach((div) => {
-            div.addEventListener("mouseover", () => {
-            div.style.backgroundColor = getRandomColor();
+        grid.addEventListener("mouseover", () => {
+            brightness -= 10;
+            grid.style.backgroundColor = getRandomColor();
+            grid.style.filter = `brightness(${brightness}%)`;
         });
-    });
+    }
 }
 
 /// This function refreshes the grid with the new squares
@@ -45,14 +44,17 @@ body.insertBefore(button, container);
 
 createGrid(16);
 
+/// Edit the grid button
 button.addEventListener("click", () => {
     editGrid();
 });
 
+/// Get a random number for RGB value
 function getRGBNum() {
   return Math.floor(Math.random() * 256);
 }
 
+/// Return full RGB value for random color
 function getRandomColor() {
     return "rgb(" + getRGBNum() + "," + getRGBNum() + "," + getRGBNum() + ")";
 }
