@@ -13,7 +13,7 @@ function createGrid(size) {
 
     gridItems.forEach((div) => {
             div.addEventListener("mouseover", () => {
-            div.classList.add("newColor");
+            div.style.backgroundColor = getRandomColor();
         });
     });
 }
@@ -48,3 +48,11 @@ createGrid(16);
 button.addEventListener("click", () => {
     editGrid();
 });
+
+function getRGBNum() {
+  return Math.floor(Math.random() * 256);
+}
+
+function getRandomColor() {
+    return "rgb(" + getRGBNum() + "," + getRGBNum() + "," + getRGBNum() + ")";
+}

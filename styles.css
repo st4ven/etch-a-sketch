@@ -16,7 +16,7 @@ body {
     margin: auto;
     flex-wrap: wrap;
     justify-content: center;
-    border: 5px solid gray;
+    border: 8px solid gray;
     max-width: 800px;
     min-width: 800px;
     gap: 1px;
@@ -35,5 +35,5 @@ button {
 }
 
 .newColor {
-    background-color: blue;
+    background-color: red;
 }
